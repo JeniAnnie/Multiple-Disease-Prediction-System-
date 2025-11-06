@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>❤️ Heart Disease Prediction</h2>
+        <form action="/predict_heart" method="post">
+            <div class="input-grid">
+                <input type="number" name="age" placeholder="Age" required>
+                <input type="number" name="sex" placeholder="Sex (1=Male, 0=Female)" required>
+                <input type="number" name="cp" placeholder="Chest Pain Type (0–3)" required>
+                <input type="number" name="trestbps" placeholder="Resting Blood Pressure" required>
+                <input type="number" name="chol" placeholder="Cholesterol" required>
+                <input type="number" name="fbs" placeholder="Fasting Blood Sugar (>120mg/dl 1=True, 0=False)" required>
+                <input type="number" name="restecg" placeholder="Resting ECG (0–2)" required>
+                <input type="number" name="thalach" placeholder="Max Heart Rate" required>
+                <input type="number" name="exang" placeholder="Exercise Induced Angina (1=Yes, 0=No)" required>
+                <input type="number" step="any" name="oldpeak" placeholder="ST Depression" required>
+                <input type="number" name="slope" placeholder="Slope (0–2)" required>
+                <input type="number" name="ca" placeholder="Major Vessels (0–3)" required>
+                <input type="number" name="thal" placeholder="Thal (1–3)" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h3>{{ result }}</h3>
+        </div>
+        {% endif %}
+
+        <a href="/" class="back">⬅ Back to Home</a>
+    </div>
+</body>
+</html>
